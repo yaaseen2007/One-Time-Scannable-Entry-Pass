@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<title>Registration Page</title>
+
+{% block content %}
+
+<div class="container my-5">
+    <h1>Registration Form</h1>
+
+<form method = 'POST'>
+    {% csrf_token %}
+
+  <div class="mb-3">
+    <label for="rollno" class="form-label">Roll Number</label>
+    <input type="text" class="form-control" name='rollno' id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  <div class="mb-3">
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name='name' id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+
+{% endblock  %}

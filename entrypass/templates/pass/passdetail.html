@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Pass Detail Page{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 text-center">
+        <h2 class="mb-3">Your Entry Pass</h2>
+        <p><strong>Name:</strong> {{ entry_pass.name }}</p>
+        <p><strong>Event:</strong> {{ entry_pass.event_name }}</p>
+        <p><strong>Status:</strong> {{ entry_pass.is_used|yesno:"Used,Unused" }}</p>
+        <div class="my-3">
+            <img src="{{ entry_pass.qr_code.url }}" alt="QR Code" class="img-fluid">
+        </div>
+        <p><strong>Unique ID:</strong> {{ entry_pass.unique_id }}</p>
+    </div>
+</div>
+
+{% endblock %}
