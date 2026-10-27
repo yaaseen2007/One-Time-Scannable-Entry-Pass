@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-f%b11p0q010fqz*xno5!0)$36j=-^_r1x05ybu&8@5+mfgafc%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['one-time-scannable-entry-pass.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -140,4 +142,4 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
-SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = 'https://one-time-scannable-entry-pass.onrender.com'
