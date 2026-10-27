@@ -1,8 +1,7 @@
-
 import os
 import qrcode
+import resend
 from django.conf import settings
-from django.core.mail import send_mail
 
 
 def generate_qr_code(unique_id, user):
@@ -34,10 +33,11 @@ def mail(user):
         f"Best regards,\nEvent Team."
     )
 
-    send_mail(
-        subject=email_subject,
-        message=email_message,
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[user.email]
-    )
+    resend.api_key = os.environ.get("RESEND_API_KEY")
 
+    resend.Emails.send({
+        "from": "EntryPass <onboarding@resend.dev>",
+        "to": [user.email],
+        "subject": email_subject,
+        "text": email_message,
+    })
