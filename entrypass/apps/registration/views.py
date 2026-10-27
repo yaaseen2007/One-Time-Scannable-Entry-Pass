@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Registration
 import uuid
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def register(request):
@@ -24,6 +25,7 @@ def register(request):
 def thank_you(request):
     return render(request, 'registration/thankyou.html')
 
+@login_required
 def pending_users(request):
     users = Registration.objects.filter(status='Pending')
     return render(request, 'registration/pendingusers.html', {'users':users})

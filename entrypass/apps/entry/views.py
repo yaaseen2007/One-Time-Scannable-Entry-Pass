@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from apps.registration.models import Registration
 from .utils import generate_qr_code, mail
 from .models import EntryPass
+from django.contrib.auth.decorators import login_required 
 
 # Create your views here.
-
+@login_required
 def approve_registration(request, unique_id):
     user = Registration.objects.filter(unique_id=unique_id).first()
 
@@ -30,7 +31,7 @@ def pass_detail(request, unique_id):
     entry_pass = EntryPass.objects.filter(unique_id=unique_id).first()
     return render(request, 'pass/passdetail.html', {'entry_pass':entry_pass})
 
-
+@login_required
 def validate(request, unique_id):
     entry_pass = EntryPass.objects.filter(unique_id=unique_id).first()
 

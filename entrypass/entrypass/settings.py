@@ -136,3 +136,8 @@ EMAIL_HOST_PASSWORD = 'yjwa enuf mdur lqpf'
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 #yjwa enuf mdur lqpf
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
+SITE_URL = 'http://127.0.0.1:8000'
