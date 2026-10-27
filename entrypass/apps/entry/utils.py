@@ -10,13 +10,14 @@ def generate_qr_code(unique_id, user):
     if not os.path.exists(qr_code_dir):
         os.makedirs(qr_code_dir)
 
-    file_path = os.path.join(qr_code_dir, f"{unique_id}.png")
+    file_name = f"{unique_id}.png"
+    file_path = os.path.join(qr_code_dir, file_name)
 
     qr_url = f"{settings.SITE_URL}/entry/validate/{user.unique_id}"
 
     qrcode.make(qr_url).save(file_path)
 
-    return file_path
+    return f"qr_codes/{file_name}"
 
 
 def mail(user):
