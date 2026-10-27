@@ -6,4 +6,4 @@ qrcode==8.2
 sqlparse==0.6.0
 tzdata==2026.5
 gunicorn
-resend==0.4.0
+resend==2.50.0
